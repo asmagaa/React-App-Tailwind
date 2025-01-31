@@ -13,20 +13,20 @@ function App() {
   ];
 
   return (
-    <div className="container">
-      <header className="header">
-        <h1 className="logo">Portal Edukacyjny</h1>
-        <nav className="nav">
-          <button onClick={() => setTab("home")} className={`nav-btn ${tab === "home" ? "active" : ""}`}>
+    <div className="flex flex-col items-center bg-gray-200 min-h-screen">
+      <header className="w-full max-w-2xl bg-gray-800 text-white flex justify-between items-center p-4 rounded-lg mt-5">
+        <h1 className="text-xl font-bold">Portal Edukacyjny</h1>
+        <nav className="flex gap-2">
+          <button onClick={() => setTab("home")} className={`bg-gray-700 text-white px-4 py-2 ${tab === "home" ? "bg-gray-600" : ""}`}>
             Home
           </button>
-          <button onClick={() => setTab("about")} className={`nav-btn ${tab === "about" ? "active" : ""}`}>
+          <button onClick={() => setTab("about")} className={`bg-gray-700 text-white px-4 py-2 ${tab === "about" ? "bg-gray-600" : ""}`}>
             O nas
           </button>
-          <button onClick={() => setTab("contact")} className={`nav-btn ${tab === "contact" ? "active" : ""}`}>
+          <button onClick={() => setTab("contact")} className={`bg-gray-700 text-white px-4 py-2 ${tab === "contact" ? "bg-gray-600" : ""}`}>
             Kontakt
           </button>
-          <button onClick={() => setTab("dashboard")} className={`nav-btn ${tab === "dashboard" ? "active" : ""}`}>
+          <button onClick={() => setTab("dashboard")} className={`bg-gray-700 text-white px-4 py-2 ${tab === "dashboard" ? "bg-gray-600" : ""}`}>
             Panel
           </button>
         </nav>
@@ -35,17 +35,17 @@ function App() {
       <main className="content">
         {tab === "home" && (
           <section className="section">
-            <h2>Witamy w Portalu Edukacyjnym</h2>
+            <h2 className="text-2xl font-bold">Witamy w Portalu Edukacyjnym</h2>
             <p>Twoje miejsce do nauki i rozwoju!</p>
             <p>Sprawdź nasze kursy i dołącz do społeczności uczniów!</p>
 
-            <h3 className="blog-title">Najnowsze artykuły</h3>
-            <div className="blog-grid">
+            <h3 className="text-xl font-semibold mt-4">Najnowsze artykuły</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               {blogPosts.map((post) => (
-                <div key={post.id} className="blog-card">
-                  <h4>{post.title}</h4>
+                <div key={post.id} className="p-4 bg-white rounded-lg shadow-md">
+                  <h4 className="text-lg font-bold">{post.title}</h4>
                   <p>{post.description}</p>
-                  <button className="blog-btn">Przejdź</button>
+                  <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Przejdź</button>
                 </div>
               ))}
             </div>
@@ -53,10 +53,10 @@ function App() {
         )}
         {tab === "about" && (
           <section className="section">
-            <h2>O nas</h2>
+            <h2 className="text-2xl font-bold">O nas</h2>
             <p>Jesteśmy zespołem pasjonatów, którzy chcą pomóc uczniom w nauce.</p>
-            <h3>Co oferujemy?</h3>
-            <ul className="list">
+            <h3 className="text-xl font-semibold mt-4">Co oferujemy?</h3>
+            <ul className="list-disc list-inside mt-2">
               <li>✅ Darmowe materiały edukacyjne</li>
               <li>✅ Dostęp do interaktywnych kursów</li>
               <li>✅ Wsparcie nauczycieli i mentorów</li>
@@ -66,31 +66,31 @@ function App() {
         )}
         {tab === "contact" && (
           <section className="section">
-            <h2>Kontakt</h2>
+            <h2 className="text-2xl font-bold">Kontakt</h2>
             <p>Masz pytania? Skontaktuj się z nami:</p>
-            <form className="contact-form">
-              <input type="text" placeholder="Twoje imię" className="input" />
-              <input type="email" placeholder="Twój email" className="input" />
-              <textarea placeholder="Twoja wiadomość" className="textarea"></textarea>
-              <button type="submit" className="submit-btn">Wyślij</button>
+            <form className="flex flex-col gap-4 mt-4">
+              <input type="text" placeholder="Twoje imię" className="p-2 border border-gray-300 rounded" />
+              <input type="email" placeholder="Twój email" className="p-2 border border-gray-300 rounded" />
+              <textarea placeholder="Twoja wiadomość" className="p-2 border border-gray-300 rounded"></textarea>
+              <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Wyślij</button>
             </form>
           </section>
         )}
         {tab === "dashboard" && (
           <section className="section">
-            <h2>Panel użytkownika</h2>
+            <h2 className="text-2xl font-bold">Panel użytkownika</h2>
             <p>Tu znajdziesz swoje kursy i materiały edukacyjne.</p>
-            <div className="course-grid">
-              <div className="course-card">
-                <h3>📘 Kurs HTML & CSS</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+              <div className="p-4 bg-white rounded-lg shadow-md">
+                <h3 className="text-lg font-bold">📘 Kurs HTML & CSS</h3>
                 <p>Podstawy tworzenia stron internetowych</p>
               </div>
-              <div className="course-card">
-                <h3>📗 Kurs JavaScript</h3>
+              <div className="p-4 bg-white rounded-lg shadow-md">
+                <h3 className="text-lg font-bold">📗 Kurs JavaScript</h3>
                 <p>Programowanie w języku JS</p>
               </div>
-              <div className="course-card">
-                <h3>📙 Kurs React</h3>
+              <div className="p-4 bg-white rounded-lg shadow-md">
+                <h3 className="text-lg font-bold">📙 Kurs React</h3>
                 <p>Tworzenie dynamicznych aplikacji</p>
               </div>
             </div>
