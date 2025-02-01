@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { defineConfig } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
 
 function App() {
   const [tab, setTab] = useState("home");
